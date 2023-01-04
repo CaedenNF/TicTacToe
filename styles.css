@@ -1,0 +1,45 @@
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px)
+    
+}
+
+.square {
+    background-color: grey;
+    font-size: 50px;
+}
+
+.no-t {
+border-top: 0;
+}
+.no-r {
+border-right: 0;
+}
+.no-b {
+border-bottom: 0;
+}
+.no-l {
+border-left: 0;
+}
+
+#winner {
+    position:fixed;
+    display: flex;
+    background-color: lightblue;
+    border-radius: 10px;
+    width: 300px;
+    height: 150px;
+    top: 40%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -150px;
+    justify-content: center;
+    align-items: center;
+}
+#winnerText {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color:darkslategray
+}
