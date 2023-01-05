@@ -1,6 +1,6 @@
 
 // create the gameboard array
-const GameBoard = (() => {
+/*const GameBoard = (() => {
     let gameboard = new Array(9)
     const squares = document.querySelectorAll(".square")
 
@@ -13,7 +13,7 @@ const GameBoard = (() => {
     }
 
 }
-})()
+})()*/
 
 
 
@@ -47,6 +47,8 @@ function displayGameboard() {
         let square = squares.item(i)
         if (gameboard[i]) {
         square.innerHTML = gameboard[i]
+        } else {
+            square.innerHTML = "";
         }
     }
 }
@@ -59,7 +61,9 @@ function assignValue() {
             if (!gameboard[e]) {
             gameboard[e] = turn
             displayGameboard();
-            checkWinner(gameboard);
+            if (checkWinner(gameboard)) {
+                return;
+            }
             changeTurn();
         }
         })
@@ -95,24 +99,31 @@ function checkWinner (sequence) {
         if (matches.length === 3) {
             
             winner(turn)
-            break;
+            return true;
         }
-        if (!gameboard.includes(undefined)) {
-            winner("tie")
-            break;
-        }
+        
     }
+    if (!gameboard.includes(undefined)) {
+        winner("tie")
+        return true;
+    } else {
+        return false;
+    }
+    
 }
 
 function winner(w) {
     switch(w) {
         case "X":
+            console.log("x wins")
             winnerText.innerText = "X Wins"
             break;
         case "O":
+            console.log("o wins")
             winnerText.innerText = "O Wins"
             break;
         case "tie":
+            console.log("tie")
             winnerText.innerText = "Tie"
             break;
     }
@@ -120,7 +131,13 @@ function winner(w) {
         let x = document.getElementById("winner");
         
         x.style.display = "flex";
-        setTimeout(() => {x.style.display = "none"}, 5000)
+        setTimeout(() => {x.style.display = "none"}, 3000)
+        reset()
+        displayGameboard()
         
-        
+}
+
+function reset() {
+    gameboard = new Array(9);
+    turn = "X"
 }

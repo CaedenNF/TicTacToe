@@ -25,7 +25,7 @@ border-left: 0;
 
 #winner {
     position:fixed;
-    display: flex;
+    display: none;
     background-color: lightblue;
     border-radius: 10px;
     width: 300px;
