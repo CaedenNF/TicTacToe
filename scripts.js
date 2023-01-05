@@ -2,9 +2,22 @@
 // create the gameboard array
 const GameBoard = (() => {
     let gameboard = new Array(9)
+    const squares = document.querySelectorAll(".square")
+
+    function displayGameboard() {
+    for (let i = 0; i < 9; i++) {
+        let square = squares.item(i)
+        if (gameboard[i]) {
+        square.innerHTML = gameboard[i]
+        }
+    }
+
+}
 })()
 
 
+
+let gameboard = new Array(9)
 const squares = document.querySelectorAll(".square")
 const winnerText = document.getElementById("winnerText")
 let turn = "X"
